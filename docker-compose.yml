@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - MAX_UPLOAD_MB=50
+      - MAX_ZIP_FILES=200
+      - MAX_UNZIPPED_MB=200
+    restart: unless-stopped
+
+  # Optional dev profile for frontend hot-reloading
+  frontend-dev:
+    profiles: ["dev"]
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    command: npm run dev -- --host
+
