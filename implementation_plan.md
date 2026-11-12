@@ -29,7 +29,7 @@ Tick tasks as done. One task at a time.
 - [x] 2.1 Multi-stage `Dockerfile`: stage 1 `node:20-alpine` builds the frontend, stage 2 `python:3.12-slim` runs uvicorn as non-root and serves `dist/`
 - [x] 2.2 `.dockerignore`
 - [x] 2.3 `docker-compose.yml` (single service; optional dev profile with Vite hot reload and volume mounts)
-- [ ] 2.4 Verify build, run, and port mapping; compare image size with and without multi-stage; check build-cache behavior after changing one file
+- [x] 2.4 Verify build, run, and port mapping; compare image size with and without multi-stage; check build-cache behavior after changing one file
 
 ## Phase 3 — AWS
 - [ ] 3.0 Create Budgets alarm ($1) and a non-root IAM user first
